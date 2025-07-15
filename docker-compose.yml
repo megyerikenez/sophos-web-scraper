@@ -6,6 +6,7 @@ services:
       - mongo
     environment:
       - MONGO_URI=mongodb://mongo:27017/scraperdb
+      - PYTHONPATH=/app
     ports:
       - "5001:5000"
     command: ["python", "main.py"]
