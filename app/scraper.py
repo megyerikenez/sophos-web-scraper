@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from datetime import datetime
+from datetime import datetime, timezone
 from app.constants import BASE_URL
 
 class WebScraper:
@@ -24,5 +24,5 @@ class WebScraper:
 
     def scrape(self):
         urls = self.extract_urls()
-        timestamp = datetime.utcnow()
+        timestamp = datetime.now(timezone.utc)
         return [{"url": url, "collected_at": timestamp} for url in urls], timestamp
